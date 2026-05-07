@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: bool
         """
         count = {}
-        check = {}
+
         if len(s) != len(t):
             return False
 
@@ -17,12 +17,11 @@ class Solution(object):
                 count[char] += 1
 
         for char in t:
-            if char not in check:
-                check[char] = 1
-            else:
-                check[char] += 1
+            if char not in count:
+                return False
+            
+            count[char] -= 1
+            if count[char] < 0:
+                return False
 
-        if check == count:
-            return True
-        else:
-            return False
+        return True
