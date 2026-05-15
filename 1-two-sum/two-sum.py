@@ -5,13 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        count = {}
+        store = {}
 
         for i in range(len(nums)):
-            check = target - nums[i]
-            if check in count:
-                return [count[check], i]
+            if target-nums[i] in store:
+                return[store[(target-nums[i])], i]
             else:
-                count[nums[i]] = i
-    
-
+                store[nums[i]] = i
