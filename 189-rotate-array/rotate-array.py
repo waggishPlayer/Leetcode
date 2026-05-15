@@ -12,7 +12,6 @@ class Solution(object):
         self.rev_chunk(nums, 0, k-1)
         self.rev_chunk(nums, k, len(nums)-1)
 
-        return nums
 
     def rev_chunk(self, nums, start, end):
         while start < end:
