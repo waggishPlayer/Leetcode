@@ -5,8 +5,8 @@ class Solution(object):
         :type k: int
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        if k > len(nums):
-            k = k%len(nums)
+
+        k = k%len(nums)
         nums.reverse()
 
         self.rev_chunk(nums, 0, k-1)
