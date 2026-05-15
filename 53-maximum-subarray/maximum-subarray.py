@@ -4,17 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-
-        current_sum = 0
-        m = nums[0]
+        
+        cur = 0
+        s = nums[0]
 
         for i in range(len(nums)):
-            current_sum += nums[i]
+            cur += nums[i]
 
-            if current_sum > m:
-                m = current_sum
+            if cur > s:
+                s = cur
+
+            if cur < 0:
+                cur = 0
             
-            if current_sum < 0:
-                current_sum = 0
-        
-        return m
+        return s
