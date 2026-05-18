@@ -11,9 +11,7 @@ class Solution(object):
             sort = "".join(sorted(word))
             if sort not in store:
                 store[sort] = []
-                store[sort].append(word)
-            
-            else:
-                store[sort].append(word)
+  
+            store[sort].append(word)
 
         return store.values()
