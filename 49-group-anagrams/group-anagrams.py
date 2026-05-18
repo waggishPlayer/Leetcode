@@ -4,15 +4,16 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        dict = {}
+        
+        store = {}
 
         for word in strs:
-            key = "".join(sorted(word))
-            if key not in dict:
-                dict[key] = []
-            dict[key].append(word)
-        
-        return list(dict.values())
-        
-        
-        
+            sort = "".join(sorted(word))
+            if sort not in store:
+                store[sort] = []
+                store[sort].append(word)
+            
+            else:
+                store[sort].append(word)
+
+        return store.values()
