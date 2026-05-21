@@ -11,7 +11,7 @@ class Solution(object):
         while left < right:
             if (numbers[left] + numbers[right]) > target:
                 right -=1
-            if (numbers[left] + numbers[right]) < target:
+            elif (numbers[left] + numbers[right]) < target:
                 left +=1
-            if (numbers[left] + numbers[right]) == target:
+            else:
                 return [left + 1, right + 1]
