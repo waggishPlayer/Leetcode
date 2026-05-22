@@ -4,15 +4,17 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        
-        profit = 0
-        left, right = 0,1
+        left = 0
+        right = 1
+        cur_profit = 0
+        max_profit = 0
 
         while right < len(prices):
-            if prices[right] < prices[left]:
+            cur_profit = prices[right] - prices[left]
+            if cur_profit < 0:
                 left = right
-
-            profit = max(profit, prices[right] - prices[left])
+            else:
+                max_profit = max(max_profit, cur_profit)
             right +=1
-        
-        return profit
+          
+        return max_profit
