@@ -6,22 +6,22 @@ class Solution(object):
         """
         stack = []
 
-        for i in range(len(s)):
-            if s[i] == '(' or s[i] == '{' or s[i] == '[':
-                stack.append(s[i])
+        for bracket in s:
+            if bracket == "(" or bracket == "{" or bracket == "[":
+                stack.append(bracket)
             else:
-                if s[i] == ')':
-                    if len(stack) > 0 and '(' == stack[-1]:
+                if bracket == ")":
+                    if len(stack) > 0 and stack[-1] == "(":
                         stack.pop()
                     else:
                         return False
-                if s[i] == '}':
-                    if len(stack) > 0 and '{' == stack[-1]:
+                if bracket == "}":
+                    if len(stack) > 0 and stack[-1] == "{":
                         stack.pop()
                     else:
                         return False
-                if s[i] == ']':
-                    if len(stack) > 0 and '[' == stack[-1]:
+                if bracket == "]":
+                    if len(stack) > 0 and stack[-1] == "[":
                         stack.pop()
                     else:
                         return False
