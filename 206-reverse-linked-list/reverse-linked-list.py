@@ -12,10 +12,10 @@ class Solution(object):
         prev = None
         curr = head
 
-        while curr is not None:
-            next_node = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next_node
+        while head is not None:
+            next_node = head.next
+            head.next = prev
+            prev = head
+            head = next_node
         
         return prev
