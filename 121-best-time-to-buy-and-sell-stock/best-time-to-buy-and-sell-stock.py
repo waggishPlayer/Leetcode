@@ -6,15 +6,13 @@ class Solution(object):
         """
         left = 0
         right = 1
-        cur_profit = 0
-        max_profit = 0
+        profit = 0
 
         while right < len(prices):
-            cur_profit = prices[right] - prices[left]
-            if cur_profit < 0:
+            if prices[left] > prices[right]:
                 left = right
+                right +=1
             else:
-                max_profit = max(max_profit, cur_profit)
-            right +=1
-          
-        return max_profit
+                profit = max(profit, prices[right] - prices[left])
+                right += 1
+        return profit
