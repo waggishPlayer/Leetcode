@@ -4,29 +4,16 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
+        dictionary = {")":"(", "}":"{", "]":"["}
         stack = []
 
-        for bracket in s:
-            if bracket == "(" or bracket == "{" or bracket == "[":
-                stack.append(bracket)
+        for char in s:
+            if char in dictionary:
+                if stack and stack[-1] == dictionary[char]:
+                    stack.pop()
+                else:
+                    return False
             else:
-                if bracket == ")":
-                    if len(stack) > 0 and stack[-1] == "(":
-                        stack.pop()
-                    else:
-                        return False
-                if bracket == "}":
-                    if len(stack) > 0 and stack[-1] == "{":
-                        stack.pop()
-                    else:
-                        return False
-                if bracket == "]":
-                    if len(stack) > 0 and stack[-1] == "[":
-                        stack.pop()
-                    else:
-                        return False
+                stack.append(char)
         
-        if len(stack) == 0:
-            return True
-        else:
-            return False
+        return len(stack) == 0
