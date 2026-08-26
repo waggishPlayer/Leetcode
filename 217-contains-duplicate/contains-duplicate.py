@@ -4,12 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        count = {}
 
-        for num in nums:
-            if num not in count:
-                count[num] = 1
-            else:
+        check = set()
+
+        for i in range(len(nums)):
+            if nums[i] in check:
                 return True
+            else:
+                check.add(nums[i])
+
+
 
         return False
+        
