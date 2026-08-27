@@ -5,14 +5,14 @@ class Solution(object):
         :rtype: int
         """
         left = 0
-        right = 1
         profit = 0
 
-        while right < len(prices):
-            if prices[left] > prices[right]:
+        for right in range(len(prices)):
+            diff = prices[right] - prices[left]
+            if prices[right] < prices[left]:
                 left = right
-                right +=1
-            else:
-                profit = max(profit, prices[right] - prices[left])
-                right += 1
+            
+            if diff > profit:
+                profit = diff
+
         return profit
