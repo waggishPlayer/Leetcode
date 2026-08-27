@@ -4,7 +4,6 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-
         check = set()
 
         for i in range(len(nums)):
@@ -13,7 +12,4 @@ class Solution(object):
             else:
                 check.add(nums[i])
 
-
-
         return False
-        
