@@ -4,20 +4,17 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        cur_area = 0
-        max_area = 0
+        container_vol = 0
         left = 0
         right = len(height) - 1
 
         while left < right:
-            h = min(height[left], height[right])
-            cur_area = h*(right-left)
-            max_area = max(max_area, cur_area)
-            if height[left] > height[right]:
-                right -= 1
-            else:
-                left += 1
+            area = (right-left)* min(height[right], height[left])
+            container_vol = max(container_vol, area)
             
-        return max_area
-
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
         
+        return container_vol
