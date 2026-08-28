@@ -4,16 +4,16 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        answer = [0]*len(nums)
-        left = 1
-        right = 1
+        left_nums = [1]*(len(nums))
+        right_nums = [1]*(len(nums))
+        answer = [1]*(len(nums))
+
+        for i in range(1, len(nums)):
+            left_nums[i] = nums[i-1] * left_nums[i-1]
+        for i in range(len(nums) - 2, -1, -1):
+            right_nums[i] = nums[i+1] * right_nums[i+1]
 
         for i in range(len(nums)):
-            answer[i] = left
-            left *= nums[i]
+            answer[i] = left_nums[i] * right_nums[i]
 
-        for i in range(len(nums)-1, -1, -1):
-            answer[i] *= right
-            right *= nums[i]
-        
         return answer
