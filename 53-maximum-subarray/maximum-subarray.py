@@ -6,7 +6,6 @@ class Solution(object):
         """
         max_sum = -99999
         window = 0
-        left = 0
 
         for right in range(len(nums)):
             window += nums[right]
@@ -15,7 +14,7 @@ class Solution(object):
 
             if window < 0:
                 window  = 0
-                left += 1
+
         
         return max_sum
 
