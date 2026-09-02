@@ -4,15 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        
         goal = len(nums) - 1
 
-        for i in range(len(nums)):
-            index = len(nums) - i - 1
-            if (index + nums[index]) >= goal:
-                goal = index
+        for i in range(len(nums) - 1, -1, -1):
+            if (i + nums[i]) >= goal:
+                goal = i
 
-        if goal == 0:
-            return True
-        else:
-            return False
+        return goal == 0
