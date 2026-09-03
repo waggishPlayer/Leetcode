@@ -14,8 +14,6 @@ class Solution(object):
         for i in range(len(gas)):
             currentTank += gas[i] - cost[i]
 
-            if (gas[i] - cost[i]) > currentTank:
-                index = i
             if currentTank < 0:
                 index = i + 1
                 currentTank = 0
